@@ -7,7 +7,7 @@ namespace Silver.ConsoleApp
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello, Nepal!");
-            Console.WriteLine("Hello, Tarang!");
+            Console.WriteLine("Hello, Tarang Gorkhali!");
         }
     }
 }
