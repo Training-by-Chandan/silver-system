@@ -8,6 +8,7 @@ namespace Silver.ConsoleApp
         {
             Console.WriteLine("Hello, Nepal!");
             Console.WriteLine("Hello, Tarang Gorkhali!");
+            Console.WriteLine("Hello");
         }
     }
 }
