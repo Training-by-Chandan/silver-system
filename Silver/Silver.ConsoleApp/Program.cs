@@ -2,13 +2,27 @@
 
 namespace Silver.ConsoleApp
 {
-    public class Program
+    internal class Program
     {
-        public static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Nepal!");
-            Console.WriteLine("Hello, Tarang Gorkhali!");
-            Console.WriteLine("Hello");
+            DType();
+        }
+
+        private static void DType()
+        {
+            int a = 10;
+            long l = 5000;
+            ulong ul = 5555;
+            short s = 32767;
+            short sa = -32768;
+            ushort ss = 65535;
+
+            //SOLID
+            // implicit and explicit
+            // type conversion
+            // parsing
+            // casting
         }
     }
 }
