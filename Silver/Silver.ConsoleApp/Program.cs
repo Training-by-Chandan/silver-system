@@ -6,13 +6,102 @@ namespace Silver.ConsoleApp
     {
         private static void Main(string[] args)
         {
-            //DataTypes();
-            //Casting();
-            //BranchingEx1();
-            BranchingEx2();
+            var res = "n";
+            do
+            {
+                //DataTypes();
+                //Casting();
+                //BranchingEx1();
+                //BranchingEx2();
+                //ForLoopExample();
+                //ForEachExample();
+                LoopBreakAndContinue();
+
+                Console.WriteLine("Do you want to continue more? (y/n)");
+                res = Console.ReadLine();
+            } while (res == "y");
         }
 
         #region Control Statements
+
+        //looping
+        //known and unknown
+        //do--while and while loop : unknown (most preferable) / known quantities
+        //for loop and foreach : Known quantities
+        private static void LoopBreakAndContinue()
+        {
+            {
+                int i = 0;
+                while (true)
+                {
+                    i++;
+                    if (i == 10)
+                    {
+                        break;
+                    }
+                    Console.WriteLine(i);
+                }
+            }
+
+            {
+                string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+                for (int i = 0; i < days.Length; i++)
+                {
+                    if (days[i] == "Tuesday")
+                    {
+                        continue;
+                    }
+                    Console.WriteLine(days[i]);
+                }
+            }
+        }
+
+        private static void ForLoopExample()
+        {
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            for (int i = 0; i < days.Length; i++)
+            {
+                Console.WriteLine(days[i]);
+            }
+        }
+
+        private static void ForEachExample()
+        {
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            foreach (var item in days)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void InfiniteLooping()
+        {
+            //do-- while
+            do
+            {
+            } while (1 < 2);
+
+            int i = 0;
+            do
+            {
+                //i++;
+            } while (i < 10);
+
+            while (true)
+            {
+            }
+
+            for (; ; )
+            {
+            }
+
+            for (int x = 0; x < 10;)
+            {
+            }
+            for (int y = 0; true; y++)
+            {
+            }
+        }
 
         private static void BranchingEx2()
         {
@@ -144,6 +233,12 @@ namespace Silver.ConsoleApp
         #endregion Control Statements
 
         #region Basic
+
+        private static void ArrayExample()
+        {
+            int[] ints = { 1, 2, 3, 4, 5, 6 };
+            int[] i = new int[10];
+        }
 
         private static void Casting()
         {
