@@ -15,12 +15,30 @@ namespace Silver.ConsoleApp
                 //BranchingEx2();
                 //ForLoopExample();
                 //ForEachExample();
-                LoopBreakAndContinue();
+                //LoopBreakAndContinue();
+                ClassAndObjectsExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
         }
+
+        #region Class And Objects
+
+        private static void ClassAndObjectsExample()
+        {
+            ClassAndObjects cs = new ClassAndObjects();
+            Console.WriteLine("hash => " + cs.GetHashCode());
+            ClassAndObjects cs1 = new ClassAndObjects(1,"");
+            ClassAndObjects cs2 = new ClassAndObjects("",1);
+            ClassAndObjects cs3 = new ClassAndObjects();
+            ClassAndObjects cs4 = new ClassAndObjects();
+            Console.WriteLine("hash => " + cs.GetHashCode());
+            cs = new ClassAndObjects();
+            Console.WriteLine("hash => " + cs.GetHashCode());
+        }
+
+        #endregion Class And Objects
 
         #region Control Statements
 
