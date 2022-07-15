@@ -16,7 +16,9 @@ namespace Silver.ConsoleApp
                 //ForLoopExample();
                 //ForEachExample();
                 //LoopBreakAndContinue();
-                ClassAndObjectsExample();
+                //ClassAndObjectsExample();
+                //PropertiesExample();
+                PropertiesExampleV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -25,17 +27,66 @@ namespace Silver.ConsoleApp
 
         #region Class And Objects
 
+        private static void PropertiesExampleV2()
+        {
+            StudentInfo si = new StudentInfo();
+            //Console.WriteLine("Enter Marks in Math");
+            //si.Math = Convert.ToDouble(Console.ReadLine());
+            //Console.WriteLine("Enter Marks in Science");
+            //si.Science = Convert.ToDouble(Console.ReadLine());
+
+            si.Math = -70;
+            si.Science = 900;
+
+            Console.WriteLine("=============================");
+            Console.WriteLine($"Math : {si.Math}");
+            Console.WriteLine($"Science : {si.Science}");
+            Console.WriteLine($"Total : {si.Total}");
+            Console.WriteLine($"Percentage : {si.Percentage}");
+            Console.WriteLine($"Division : {si.Division}");
+
+            si.Math = 55;
+            si.Science = 40;
+            Console.WriteLine("=============================");
+            Console.WriteLine($"Math : {si.Math}");
+            Console.WriteLine($"Science : {si.Science}");
+            Console.WriteLine($"Total : {si.Total}");
+            Console.WriteLine($"Percentage : {si.Percentage}");
+            Console.WriteLine($"Division : {si.Division}");
+        }
+
+        private static void PropertiesExample()
+        {
+            StudentInfo si = new StudentInfo();
+            Console.WriteLine("Enter the FirstName");
+            si.FirstName = Console.ReadLine();
+            Console.WriteLine("Enter the MiddleName");
+            si.MiddleName = Console.ReadLine();
+            Console.WriteLine("Enter the LastName");
+            si.LastName = Console.ReadLine();
+
+            Console.WriteLine("Full name is " + si.FullName);
+        }
+
         private static void ClassAndObjectsExample()
         {
             ClassAndObjects cs = new ClassAndObjects();
             Console.WriteLine("hash => " + cs.GetHashCode());
-            ClassAndObjects cs1 = new ClassAndObjects(1,"");
-            ClassAndObjects cs2 = new ClassAndObjects("",1);
+            ClassAndObjects cs1 = new ClassAndObjects(1, "");
+            ClassAndObjects cs2 = new ClassAndObjects("", 1);
             ClassAndObjects cs3 = new ClassAndObjects();
             ClassAndObjects cs4 = new ClassAndObjects();
             Console.WriteLine("hash => " + cs.GetHashCode());
             cs = new ClassAndObjects();
             Console.WriteLine("hash => " + cs.GetHashCode());
+
+            cs.I = 10;
+            Console.WriteLine(cs.I);
+            //cs._code = 10 ;
+            cs.SetCode("ajsdfa");
+            // cs.Code = "asfasdf";
+            Console.WriteLine(cs.Code);
+            cs.Code = Console.ReadLine();
         }
 
         #endregion Class And Objects
