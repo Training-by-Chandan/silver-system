@@ -18,7 +18,8 @@ namespace Silver.ConsoleApp
                 //LoopBreakAndContinue();
                 //ClassAndObjectsExample();
                 //PropertiesExample();
-                PropertiesExampleV2();
+                //PropertiesExampleV2();
+                FunctionExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -26,6 +27,26 @@ namespace Silver.ConsoleApp
         }
 
         #region Class And Objects
+
+        private static void FunctionExample()
+        {
+            ClassAndObjects co = new ClassAndObjects();
+            var a = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 10 };
+            co.Add(1, 2, 3, 4, 5, 6, 7, 8, 10);
+
+            co.FunctionTwo(1, "abc", DateTime.Now);
+            co.FunctionTwo(a: 1, b: "abc", dt: DateTime.Now);
+            co.FunctionTwo(dt: DateTime.Now, a: 1, b: "");
+            //Console.Write()
+            co.FunctionThree(1, 2);
+
+            int x = 10, y = 20;
+            ClassAndObjects.PassByValue(x, y);
+            ClassAndObjects.PassByReference(ref x, ref y);
+            ClassAndObjects.UsingOut(x, y, out y);
+            var res = co.Subtract(10, 29);
+            var res2 = co.Multiply(20, 10);
+        }
 
         private static void PropertiesExampleV2()
         {

@@ -83,11 +83,10 @@
 
         public double Total
         {
-            get
-            {
-                return Science + Math;
-            }
+            get => Science + Math;
         }
+
+        public double TotalMarks => Science + Math;
 
         public double Percentage
         {
@@ -123,6 +122,8 @@
                 }
             }
         }
+
+        public string Div => (Percentage >= 80) ? "Distinction" : (Percentage >= 60) ? "First Division" : (Percentage >= 45) ? "Second Division" : (Percentage >= 32) ? "Third Division" : "Failed";
 
         #endregion Marks Info
     }
