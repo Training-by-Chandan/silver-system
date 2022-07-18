@@ -22,7 +22,8 @@ namespace Silver.ConsoleApp
                 //PropertiesExampleV2();
                 //FunctionExample();
                 //OperatorOverloadingExample();
-                StringManipulation();
+                //StringManipulation();
+                StaticAndNOnStatic();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -30,6 +31,27 @@ namespace Silver.ConsoleApp
         }
 
         #region Class And Objects
+
+        public static void StaticAndNOnStatic()
+        {
+            //StaticClass sc = new StaticClass();
+            StaticClass.I = 20;
+            StaticClass.FunctionOne();
+
+            NonStaticClass nsc = new NonStaticClass();
+            NonStaticClass nsc1 = new NonStaticClass();
+            NonStaticClass nsc2 = new NonStaticClass();
+            NonStaticClass.IStatic = 10; ;
+            NonStaticClass.StaticFunction();
+
+            nsc.I = 10;
+            nsc1.I = 10;
+            nsc2.I = 10;
+
+            nsc.Function();
+            nsc1.Function();
+            nsc2.Function();
+        }
 
         private static void OperatorOverloadingExample()
         {
