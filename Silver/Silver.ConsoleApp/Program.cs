@@ -19,7 +19,8 @@ namespace Silver.ConsoleApp
                 //ClassAndObjectsExample();
                 //PropertiesExample();
                 //PropertiesExampleV2();
-                FunctionExample();
+                //FunctionExample();
+                OperatorOverloadingExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -27,6 +28,29 @@ namespace Silver.ConsoleApp
         }
 
         #region Class And Objects
+
+        private static void OperatorOverloadingExample()
+        {
+            int i = 10;
+            int j = 20;
+            int res = i + j;
+
+            StudentInfo s1 = new StudentInfo(70, 80);
+            StudentInfo s3 = new StudentInfo(70, 80);
+            StudentInfo s2 = new StudentInfo(50, 60);
+            StudentInfo s5 = new StudentInfo(20, 50);
+            //var totalMath = s1.Math + s2.Math + s3.Math+s5.Math;
+            //var totalScience = s1.Science + s2.Science + s3.Science +s5.Science;
+            //var totalUpper = s1.Upper + s2.Upper + s3.Upper+s5.Upper;
+
+            //StudentInfo s4 = s1 + s2 + s3 + s5 + 2;
+            //StudentInfo s = 2 + s1;
+            //s1++;
+
+            s1 = s1 + 2;
+
+            Console.WriteLine(s1 == s3);
+        }
 
         private static void FunctionExample()
         {
