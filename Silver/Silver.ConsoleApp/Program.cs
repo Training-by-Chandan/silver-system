@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Silver.ConsoleApp
 {
@@ -20,7 +21,8 @@ namespace Silver.ConsoleApp
                 //PropertiesExample();
                 //PropertiesExampleV2();
                 //FunctionExample();
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
+                StringManipulation();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -347,6 +349,39 @@ namespace Silver.ConsoleApp
         #endregion Control Statements
 
         #region Basic
+
+        private static void StringManipulation()
+        {
+            //concatenation
+            {
+                string s1 = "Hello";
+                string s2 = "World";
+                string res = s1 + " " + s2 + ".";
+            }
+            //formatting
+            {
+                string s1 = "Hello";
+                string s2 = "World";
+                string format = "{0} {1} {1}.";
+                string res = string.Format(format, s1, s2);
+            }
+            //interpolation
+            {
+                string s1 = "Hello";
+                string s2 = "World";
+
+                string res = $"{s1} {s2}.";
+            }
+            //using stringbuilder\
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+                sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+                sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+
+                var res = sb.ToString();
+            }
+        }
 
         private static void ArrayExample()
         {
