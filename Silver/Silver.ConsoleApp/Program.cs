@@ -23,12 +23,45 @@ namespace Silver.ConsoleApp
                 //FunctionExample();
                 //OperatorOverloadingExample();
                 //StringManipulation();
-                StaticAndNOnStatic();
+                //StaticAndNOnStatic();
+                InheritanceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
         }
+
+        #region Inheritance
+
+        private static void InheritanceExample()
+        {
+            LivingThings l1 = new LivingThings();
+            LivingThings a1 = new Animal();
+            LivingThings p1 = new Plant();
+
+            Vertibrates v1 = new Vertibrates();
+            Invertibrates i1 = new Invertibrates();
+            Human h1 = new Human();
+
+            LivingThings l2 = new LivingThings("test");
+            Animal a2 = new Animal("animal");
+
+            //LivingThings l3 = new LivingThings(20);
+            Animal a3 = new Animal(30);
+
+            l1.Name = "";
+            a1.Name = "";
+            p1.Name = "";
+
+            l1.Function();
+            a1.Function();
+            p1.Function();
+
+            LivingThings[] arr = new LivingThings[] { l1, l2, a1, a2, a3, p1, h1, v1, i1 };
+            Animal[] animals = new Animal[] { a2, a3, v1, i1, h1 };
+        }
+
+        #endregion Inheritance
 
         #region Class And Objects
 
