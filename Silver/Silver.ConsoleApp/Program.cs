@@ -24,7 +24,7 @@ namespace Silver.ConsoleApp
                 //OperatorOverloadingExample();
                 //StringManipulation();
                 //StaticAndNOnStatic();
-                InheritanceExample();
+                //InheritanceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -32,6 +32,78 @@ namespace Silver.ConsoleApp
         }
 
         #region Inheritance
+
+        private static void UsingInterfaceExample()
+        {
+            Console.WriteLine("Press \n1 for square\n2 for rectangle\nEnter the choice ");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            var shape = GetShape(choice);
+            if (shape == null)
+            {
+                Console.WriteLine("Invalid choice ");
+            }
+            else
+            {
+                shape.Input();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static IShape _getShape(int choice)
+        {
+            //IShape s = new Circle();
+            //IShape squareShape = new Square();
+            //s.Area();
+            //s.Areas();
+            switch (choice)
+            {
+                case 1:
+                    return new Square();
+
+                case 2:
+                    return new Rectangle();
+
+                // case 3:
+                //return new Circle();
+
+                default:
+                    return null;
+            }
+        }
+
+        private static void WithoutUsingInterfaceExample()
+        {
+            Console.WriteLine("Press \n1 for square\n2 for rectangle\nEnter the choice ");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Square s = new Square();
+                    s.Input();
+                    s.Area();
+                    s.Perimeter();
+                    break;
+
+                case 2:
+                    Rectangle r = new Rectangle();
+                    r.Input();
+                    r.Area();
+                    r.Perimeter();
+                    break;
+
+                case 3:
+                    Circle c = new Circle();
+                    c.Input();
+                    c.Areas();
+                    c.Perimeter();
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
+            }
+        }
 
         private static void InheritanceExample()
         {
@@ -461,7 +533,7 @@ namespace Silver.ConsoleApp
             c = (char)i;
 
             string str = i.ToString();
-            Program p = new();
+            //Program p = new();
             str = p.ToString();
 
             //parsing

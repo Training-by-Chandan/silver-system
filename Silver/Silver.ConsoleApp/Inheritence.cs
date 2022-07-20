@@ -1,5 +1,28 @@
 ﻿using System;
 
+//types of inheritance
+///1. Single Inheritane
+///a
+///b:a
+///
+///2. Multiple Inheritance : possible with interface
+///a
+///b
+///c:a,b
+///
+///3. Multi-Level Inheritance
+///a
+///b:a
+///c:b
+///
+///4. Hierarchial Inheritance
+///a
+///b:a
+///c:a
+///
+///5. Hybrid Inheritance
+///mix of everything
+
 namespace Silver.ConsoleApp
 {
     public class Testing
