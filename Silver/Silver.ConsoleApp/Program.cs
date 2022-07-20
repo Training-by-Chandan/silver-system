@@ -24,7 +24,8 @@ namespace Silver.ConsoleApp
                 //OperatorOverloadingExample();
                 //StringManipulation();
                 //StaticAndNOnStatic();
-                InheritanceExample();
+                //InheritanceExample();
+                UsingInterfaceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();

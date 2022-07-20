@@ -89,7 +89,7 @@ namespace Silver.ConsoleApp
             Console.WriteLine("Enter the length");
             length = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter the breadth");
-            length = Convert.ToDouble(Console.ReadLine());
+            breadth = Convert.ToDouble(Console.ReadLine());
         }
 
         public void Area()
