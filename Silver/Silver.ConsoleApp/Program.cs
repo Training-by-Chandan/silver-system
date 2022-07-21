@@ -25,6 +25,9 @@ namespace Silver.ConsoleApp
                 //StringManipulation();
                 //StaticAndNOnStatic();
                 //InheritanceExample();
+                //WithoutUsingInterfaceExample();
+                //UsingInterfaceExample();
+                UsingAbstractExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -33,11 +36,51 @@ namespace Silver.ConsoleApp
 
         #region Inheritance
 
+        private static void UsingAbstractExample()
+        {
+            Console.WriteLine("Press \n1 for square\n2 for rectangle\nEnter the choice ");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            var shape = getAShape(choice);
+            if (shape == null)
+            {
+                Console.WriteLine("Invalid choice ");
+            }
+            else
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static AShape getAShape(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new SquareAbs();
+
+                case 2:
+                    return new RectangleAbs();
+
+                default:
+                    return null;
+            }
+        }
+
+        private static void AbstractExample()
+        {
+            // AbstractClass cs = new AbstractClass();
+            AbsExample abs = new AbsExample();
+            abs.FunctionOne();
+            abs.FunctionTwo();
+        }
+
         private static void UsingInterfaceExample()
         {
             Console.WriteLine("Press \n1 for square\n2 for rectangle\nEnter the choice ");
             var choice = Convert.ToInt32(Console.ReadLine());
-            var shape = GetShape(choice);
+            var shape = _getShape(choice);
             if (shape == null)
             {
                 Console.WriteLine("Invalid choice ");
@@ -534,7 +577,7 @@ namespace Silver.ConsoleApp
 
             string str = i.ToString();
             //Program p = new();
-            str = p.ToString();
+            //str = p.ToString();
 
             //parsing
             str = "123";
