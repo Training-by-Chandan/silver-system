@@ -32,6 +32,14 @@ namespace Silver.ConsoleApp
             } while (res == "y");
         }
 
+        private static void AbstractExample()
+        {
+            //AbstractClass abstractClass = new AbstractClass();
+            AbsExample absExample = new AbsExample();
+            absExample.FunctionOne();
+            absExample.FunctionTwo();
+        }
+
         #region Inheritance
 
         private static void UsingInterfaceExample()
