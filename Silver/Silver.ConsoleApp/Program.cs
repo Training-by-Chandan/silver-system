@@ -27,11 +27,32 @@ namespace Silver.ConsoleApp
                 //InheritanceExample();
                 //WithoutUsingInterfaceExample();
                 //UsingInterfaceExample();
-                UsingAbstractExample();
+                //UsingAbstractExample();
+                CustomStackExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void CustomStackExample()
+        {
+            CustomStack cs = new CustomStack();
+            cs.Push("abc");
+            cs.Push("def");
+            cs.Pop();
+            cs.Push("ghi");
+            cs.Push("jkl");
+            cs.Push("mno");
+            cs.Push("pqr");
+            cs.Push("xyz");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
         }
 
         #region Inheritance
