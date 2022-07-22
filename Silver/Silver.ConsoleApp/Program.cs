@@ -28,16 +28,65 @@ namespace Silver.ConsoleApp
                 //WithoutUsingInterfaceExample();
                 //UsingInterfaceExample();
                 //UsingAbstractExample();
-                CustomStackExample();
+                //CustomStackExample();
+                CustomStackV2Example();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
         }
 
+        private static void CustomStackTemplatedExample()
+        {
+            CustomStack<string> cs = new CustomStack<string>();
+            cs.Push("");
+            CustomStack<int> cs1 = new CustomStack<int>();
+            cs1.Push('C');
+            CustomStack<LivingThings> cs2 = new CustomStack<LivingThings>();
+            //int i = 'C';
+
+            Templates<int, string, float> temp = new Templates<int, string, float>();
+            temp.VarOne = 12;
+            temp.VarTwo = "";
+            temp.VarThree = 3f;
+            temp.FunctionOne(12, "", 3f);
+
+            var tmp = new Templates<string, LivingThings, IShape>();
+            tmp.VarOne = "";
+            tmp.VarTwo = new Vertibrates();
+            tmp.VarThree = new Square();
+            tmp.FunctionOne("", new Human(), new Circle());
+
+            var tempv2 = new TemplatesV2<int, CustomStack<int>, Square>();
+
+            var nonTemp = new NonTemplatedClass();
+            nonTemp.FunctionOne<int, Square>(12, new Square(), 13, new Square());
+        }
+
+        private static void CustomStackV2Example()
+        {
+            CustoStackV2 cs = new CustoStackV2();
+            cs.Push("abc");
+            cs.Push("def");
+            cs.Pop();
+            cs.Push("ghi");
+            cs.Push("jkl");
+            cs.Push("mno");
+            cs.Push("pqr");
+            cs.Push("xyz");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+        }
+
         private static void CustomStackExample()
         {
             CustomStack cs = new CustomStack();
+            CustomStack cs1 = new CustomStack(20);
             cs.Push("abc");
             cs.Push("def");
             cs.Pop();

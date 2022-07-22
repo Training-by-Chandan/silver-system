@@ -56,7 +56,7 @@ namespace Silver.ConsoleApp
         void Perimeter();
     }
 
-    public class Square : IShape
+    public class Square : IShape, IAbc
     {
         private double length;
 
@@ -76,6 +76,11 @@ namespace Silver.ConsoleApp
         {
             var perimeter = 4 * length;
             Console.WriteLine($"Periemeter = {perimeter}");
+        }
+
+        public string FunctionThree(int a, int b)
+        {
+            throw new NotImplementedException();
         }
     }
 
