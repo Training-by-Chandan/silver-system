@@ -16,6 +16,7 @@ namespace Silver.ConsoleApp
         public abstract void FunctionTwo();
     }
 
+    //Indexer
     public class AbsExample : AbstractClass
     {
         public override void FunctionTwo()
