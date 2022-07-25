@@ -30,11 +30,44 @@ namespace Silver.ConsoleApp
                 //UsingAbstractExample();
                 //CustomStackExample();
                 //CustomStackV2Example();
-                IndexersExample();
+                //IndexersExample();
+                DelegatesExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void DelegatesExample()
+        {
+            Delegates dg = new Delegates();
+            dg.Run();
+            dg.m = FunctionOutside;
+            Console.CancelKeyPress += Console_CancelKeyPress;
+            Console.CancelKeyPress += Console_CancelKeyPress1;
+            dg.OnMathOpsCalled += Dg_OnMathOpsCalled;
+            Console.ReadLine();
+            dg.RunFromOutside();
+        }
+
+        private static void Dg_OnMathOpsCalled(int a, int b)
+        {
+            Console.WriteLine("Event activated");
+        }
+
+        private static void Console_CancelKeyPress1(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("Second function is called on ctrl + c");
+        }
+
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("Process is cancelled");
+        }
+
+        private static void FunctionOutside(int a, int b)
+        {
+            Console.WriteLine("Function from outside");
         }
 
         private static void IndexersExample()
