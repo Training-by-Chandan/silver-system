@@ -42,6 +42,14 @@ namespace Silver.ConsoleApp
                 Console.WriteLine("Stack is empty");
             }
         }
+
+        public string this[int index]
+        {
+            get
+            {
+                return container[index];
+            }
+        }
     }
 
     public class CustomStack<T>
@@ -82,6 +90,14 @@ namespace Silver.ConsoleApp
             else
             {
                 Console.WriteLine("Stack is empty");
+            }
+        }
+
+        public T this[int index]
+        {
+            get
+            {
+                return container[index];
             }
         }
     }

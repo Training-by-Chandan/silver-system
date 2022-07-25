@@ -29,11 +29,20 @@ namespace Silver.ConsoleApp
                 //UsingInterfaceExample();
                 //UsingAbstractExample();
                 //CustomStackExample();
-                CustomStackV2Example();
+                //CustomStackV2Example();
+                IndexersExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void IndexersExample()
+        {
+            Months m = new Months();
+            Console.WriteLine(m[1]);
+            Console.WriteLine(m["1"]);
+            //m["0"] = "ABC";
         }
 
         private static void CustomStackTemplatedExample()
@@ -87,6 +96,7 @@ namespace Silver.ConsoleApp
         {
             CustomStack cs = new CustomStack();
             CustomStack cs1 = new CustomStack(20);
+            var res = cs[0];
             cs.Push("abc");
             cs.Push("def");
             cs.Pop();
