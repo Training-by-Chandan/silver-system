@@ -31,11 +31,18 @@ namespace Silver.ConsoleApp
                 //CustomStackExample();
                 //CustomStackV2Example();
                 //IndexersExample();
-                DelegatesExample();
+                //DelegatesExample();
+                ParallelProgrammingExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void ParallelProgrammingExample()
+        {
+            ParallelProgramming pp = new ParallelProgramming();
+            pp.Run();
         }
 
         private static void DelegatesExample()
