@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace Silver.ConsoleApp
 {
@@ -27,6 +26,14 @@ namespace Silver.ConsoleApp
                 //InheritanceExample();
                 UsingInterfaceExample();
 
+                //WithoutUsingInterfaceExample();
+                //UsingInterfaceExample();
+                //UsingAbstractExample();
+                //CustomStackExample();
+                //CustomStackV2Example();
+                //IndexersExample();
+                DelegatesExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
@@ -40,9 +47,156 @@ namespace Silver.ConsoleApp
             absExample.FunctionTwo();
         }
 
-        //Sorted List
+        private static void DelegatesExample()
+        {
+            Delegates dg = new Delegates();
+            dg.Run();
+            dg.m = FunctionOutside;
+            Console.CancelKeyPress += Console_CancelKeyPress;
+            Console.CancelKeyPress += Console_CancelKeyPress1;
+            dg.OnMathOpsCalled += Dg_OnMathOpsCalled;
+            Console.ReadLine();
+            dg.RunFromOutside();
+        }
+
+        private static void Dg_OnMathOpsCalled(int a, int b)
+        {
+            Console.WriteLine("Event activated");
+        }
+
+        private static void Console_CancelKeyPress1(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("Second function is called on ctrl + c");
+        }
+
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("Process is cancelled");
+        }
+
+        private static void FunctionOutside(int a, int b)
+        {
+            Console.WriteLine("Function from outside");
+        }
+
+        private static void IndexersExample()
+        {
+            Months m = new Months();
+            Console.WriteLine(m[1]);
+            Console.WriteLine(m["1"]);
+            //m["0"] = "ABC";
+        }
+
+        private static void CustomStackTemplatedExample()
+        {
+            CustomStack<string> cs = new CustomStack<string>();
+            cs.Push("");
+            CustomStack<int> cs1 = new CustomStack<int>();
+            cs1.Push('C');
+            CustomStack<LivingThings> cs2 = new CustomStack<LivingThings>();
+            //int i = 'C';
+
+            Templates<int, string, float> temp = new Templates<int, string, float>();
+            temp.VarOne = 12;
+            temp.VarTwo = "";
+            temp.VarThree = 3f;
+            temp.FunctionOne(12, "", 3f);
+
+            var tmp = new Templates<string, LivingThings, IShape>();
+            tmp.VarOne = "";
+            tmp.VarTwo = new Vertibrates();
+            tmp.VarThree = new Square();
+            tmp.FunctionOne("", new Human(), new Circle());
+
+            var tempv2 = new TemplatesV2<int, CustomStack<int>, Square>();
+
+            var nonTemp = new NonTemplatedClass();
+            nonTemp.FunctionOne<int, Square>(12, new Square(), 13, new Square());
+        }
+
+        private static void CustomStackV2Example()
+        {
+            CustoStackV2 cs = new CustoStackV2();
+            cs.Push("abc");
+            cs.Push("def");
+            cs.Pop();
+            cs.Push("ghi");
+            cs.Push("jkl");
+            cs.Push("mno");
+            cs.Push("pqr");
+            cs.Push("xyz");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+        }
+
+        private static void CustomStackExample()
+        {
+            CustomStack cs = new CustomStack();
+            CustomStack cs1 = new CustomStack(20);
+            var res = cs[0];
+            cs.Push("abc");
+            cs.Push("def");
+            cs.Pop();
+            cs.Push("ghi");
+            cs.Push("jkl");
+            cs.Push("mno");
+            cs.Push("pqr");
+            cs.Push("xyz");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+        }
 
         #region Inheritance
+
+        private static void UsingAbstractExample()
+        {
+            Console.WriteLine("Press \n1 for square\n2 for rectangle\nEnter the choice ");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            var shape = getAShape(choice);
+            if (shape == null)
+            {
+                Console.WriteLine("Invalid choice ");
+            }
+            else
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static AShape getAShape(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new SquareAbs();
+
+                case 2:
+                    return new RectangleAbs();
+
+                default:
+                    return null;
+            }
+        }
+
+        private static void AbstractExample()
+        {
+            // AbstractClass cs = new AbstractClass();
+            AbsExample abs = new AbsExample();
+            abs.FunctionOne();
+            abs.FunctionTwo();
+        }
 
         private static void UsingInterfaceExample()
         {
