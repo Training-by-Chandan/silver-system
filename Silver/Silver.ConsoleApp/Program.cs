@@ -32,11 +32,78 @@ namespace Silver.ConsoleApp
                 //CustomStackV2Example();
                 //IndexersExample();
                 //DelegatesExample();
-                ParallelProgrammingExample();
+                //ParallelProgrammingExample();
+                //ExceptionsExample();
+                ExceptionsExampleV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void ExceptionsExampleV2()
+        {
+            try
+            {
+                Exceptions.MainFunction();
+            }
+            catch(NumberZeroException ex)
+            {
+                //send email
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("==============================");
+                Console.WriteLine($"Type of Error : {ex.GetType()}");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("==============================");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+
+        private static void ExceptionsExample()
+        {
+            try
+            {
+                Console.WriteLine("Enter the size of array");
+                var size = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter the number");
+                var num = Convert.ToInt32(Console.ReadLine());
+
+                int[] arr = new int[size];
+                arr[10] = num;
+
+                Console.WriteLine("All good");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Arkai tarikale handle gariyo");
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Yeslai ni arkai tarikale handle gare");
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("==============================");
+                Console.WriteLine($"Type of Error : {ex.GetType()}");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("==============================");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            finally
+            {
+                Console.WriteLine("Finally \"finally\" block is called");
+            }
         }
 
         private static void ParallelProgrammingExample()
