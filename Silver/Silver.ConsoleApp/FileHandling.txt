@@ -1,0 +1,253 @@
+﻿Microsoft (R) Visual C# Interactive Compiler version 4.2.0-4.22281.5 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+
+> //path
+
+> //directory
+
+> //file
+
+> 
+
+> 
+
+> 
+
+> //path
+
+> using System.IO;
+
+> var silver = "D:\\Silver\\test\\abc.txt";
+
+> var s = silver.Split('\\');
+
+> s
+string[4] { "D:", "Silver", "test", "abc.txt" }
+
+> s[0]+"\\"
+"D:\\"
+
+> var folder = new string[s.Length - 1];
+
+> Array.Copy(s, folder, s.Length - 1);
+
+> folder
+string[3] { "D:", "Silver", "test" }
+
+> string.Join("\\",folder)
+"D:\\Silver\\test"
+
+> s[s.Length-1]
+"abc.txt"
+
+> var filename = s[s.Length - 1];
+
+> filename
+"abc.txt"
+
+> Path.GetPathRoot(silver)
+"D:\\"
+
+> Path.GetDirectoryName(silver);
+
+> Path.GetDirectoryName(silver)
+"D:\\Silver\\test"
+
+> Path.GetFileName(silver);
+
+> Path.GetFileName(silver)
+"abc.txt"
+
+> Path.GetExtension(silver)
+".txt"
+
+> Path.GetFileNameWithoutExtension(silver)
+"abc"
+
+> silver
+"D:\\Silver\\test\\abc.txt"
+
+> Path.ChangeExtension(silver,".doc")
+"D:\\Silver\\test\\abc.doc"
+
+> Path.Combine("D:","silver-system","c sharp","console","program.cs")
+"D:silver-system\\c sharp\\console\\program.cs"
+
+> Path.Combine("D:\\","silver-system","c sharp","console","program.cs")
+"D:\\silver-system\\c sharp\\console\\program.cs"
+
+> Path.GetRandomFileName()
+"qga4zwvs.mu1"
+
+> Path.GetTempPath()
+"C:\\Users\\Chand\\AppData\\Local\\Temp\\"
+
+> Path.GetTempFileName()
+"C:\\Users\\Chand\\AppData\\Local\\Temp\\tmp1C45.tmp"
+
+> Path.InvalidPathChars()
+(1,6): error CS1955: Non-invocable member 'Path.InvalidPathChars' cannot be used like a method.
+
+> Path.InvalidPathChars
+char[36] { '"', '<', '>', '|', '\0', '\u0001', '\u0002', '\u0003', '\u0004', '\u0005', '\u0006', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\u000e', '\u000f', '\u0010', '\u0011', '\u0012', '\u0013', '\u0014', '\u0015', '\u0016', '\u0017', '\u0018', '\u0019', '\u001a', '\u001b', '\u001c', '\u001d', '\u001e', '\u001f' }
+
+> Path.PathSeparator
+';'
+
+> Path.DirectorySeparatorChar
+'\\'
+
+> 
+
+> 
+
+> 
+
+> //Directory
+
+> DirectoryInfo di = new DirectoryInfo();
+(1,24): error CS7036: There is no argument given that corresponds to the required formal parameter 'path' of 'DirectoryInfo.DirectoryInfo(string)'
+
+> DirectoryInfo di = new DirectoryInfo("D:\\TestPath");
+
+> di.Create()
+
+> di.Attributes
+Directory
+
+> di.CreationTime
+[25/07/2022 20:16:27]
+
+> DirectoryInfo di = new DirectoryInfo("D:\\Tp");
+
+> di.CreationTime
+[01/01/1601 05:45:00]
+
+> di.Exists()
+(1,4): error CS1955: Non-invocable member 'DirectoryInfo.Exists' cannot be used like a method.
+
+> di.Exists
+false
+
+> 
+
+> Directory.CreateDirectory("D:\\testpath\\consoleapp")
+[consoleapp]
+
+> Directory.Delete("D:\\testpath\\consoleapp")
+
+> Directory.Delete("D:\\testpath\\abc")
+System.IO.IOException: The directory is not empty.
+
+  + System.IO.__Error.WinIOError(int, string)
+  + System.IO.Directory.DeleteHelper(string, string, bool, bool, ref Microsoft.Win32.Win32Native.WIN32_FIND_DATA)
+  + System.IO.Directory.Delete(string, string, bool, bool)
+
+> Directory.Delete("D:\\testpath\\abc",true)
+
+> Directory.EnumerateDirectories("D:\\testpath\\testproject")
+FileSystemEnumerableIterator<string> { "D:\\testpath\\testproject\\Controllers", "D:\\testpath\\testproject\\Models", "D:\\testpath\\testproject\\obj", "D:\\testpath\\testproject\\Properties", "D:\\testpath\\testproject\\Views", "D:\\testpath\\testproject\\wwwroot" }
+
+> Directory.EnumerateFiles("D:\\testpath\\testproject")
+FileSystemEnumerableIterator<string> { "D:\\testpath\\testproject\\appsettings.Development.json", "D:\\testpath\\testproject\\appsettings.json", "D:\\testpath\\testproject\\Program.cs", "D:\\testpath\\testproject\\TestProject.csproj" }
+
+> Directory.GetFiles("D:\\testpath\\testproject")
+string[4] { "D:\\testpath\\testproject\\appsettings.Development.json", "D:\\testpath\\testproject\\appsettings.json", "D:\\testpath\\testproject\\Program.cs", "D:\\testpath\\testproject\\TestProject.csproj" }
+
+> var files = Directory.GetFiles("D:\\testpath\\testproject")
+. ;
+
+> files
+string[4] { "D:\\testpath\\testproject\\appsettings.Development.json", "D:\\testpath\\testproject\\appsettings.json", "D:\\testpath\\testproject\\Program.cs", "D:\\testpath\\testproject\\TestProject.csproj" }
+
+> from f in files select Path.GetFileName(f)
+Enumerable.WhereSelectArrayIterator<string, string> { "appsettings.Development.json", "appsettings.json", "Program.cs", "TestProject.csproj" }
+
+> (from f in files select Path.GetFileName(f)).ToList()
+List<string>(4) { "appsettings.Development.json", "appsettings.json", "Program.cs", "TestProject.csproj" }
+
+> Directory.GetParent("D:\\testpath\\testproject")
+[D:\testpath]
+
+> Directory.GetParent(
+. Directory.GetParent("D:\\testpath\\testproject"))
+(2,1): error CS1503: Argument 1: cannot convert from 'System.IO.DirectoryInfo' to 'string'
+
+> Directory.GetParent(
+. Directory.GetParent("D:\\testpath\\testproject").ToString())
+[D:\]
+
+> Directory.GetLogicalDrives()
+string[2] { "C:\\", "D:\\" }
+
+> Directory.GetAccessControl("D:\\testpath\\testproject")
+DirectorySecurity { AccessRightType=[System.Security.AccessControl.FileSystemRights], AccessRightType=[System.Security.AccessControl.FileSystemRights], AccessRulesModified=!<InvalidOperationException>, AccessRuleType=[System.Security.AccessControl.FileSystemAccessRule], AccessRuleType=[System.Security.AccessControl.FileSystemAccessRule], AreAccessRulesCanonical=true, AreAccessRulesProtected=false, AreAuditRulesCanonical=true, AreAuditRulesProtected=false, AuditRulesModified=!<InvalidOperationException>, AuditRuleType=[System.Security.AccessControl.FileSystemAuditRule], AuditRuleType=[System.Security.AccessControl.FileSystemAuditRule], GroupModified=!<InvalidOperationException>, IsContainer=true, IsDS=false, OwnerModified=!<InvalidOperationException> }
+
+> 
+
+> 
+
+> 
+
+> //File
+
+> files
+string[4] { "D:\\testpath\\testproject\\appsettings.Development.json", "D:\\testpath\\testproject\\appsettings.json", "D:\\testpath\\testproject\\Program.cs", "D:\\testpath\\testproject\\TestProject.csproj" }
+
+> File.AppendAllLines("D:\\TestPath\\files.txt",files)
+
+> File.AppendAllLines("D:\\TestPath\\files.txt",files)
+
+> File.WriteAllLines("D:\\TestPath\\files.txt",files)
+
+> File.AppendAllText("D:\\TestPath\\files.txt", "We are learning file handling today")
+
+> File.ReadAllText("D:\\TestPath\\files.txt")
+"D:\\testpath\\testproject\\appsettings.Development.json\r\nD:\\testpath\\testproject\\appsettings.json\r\nD:\\testpath\\testproject\\Program.cs\r\nD:\\testpath\\testproject\\TestProject.csproj\r\nWe are learning file handling today"
+
+> File.Encrypt("D:\\TestPath\\files.txt")
+
+> File.Decrypt("D:\\TestPath\\files.txt")
+
+> File.Copy("D:\\TestPath\\files.txt","D:\\TestPath\\abc\\abc.txt")
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\TestPath\abc\abc.txt'.
+  + System.IO.__Error.WinIOError(int, string)
+  + System.IO.File.InternalCopy(string, string, bool, bool)
+
+> var dest = "D:\\TestPath\\abc\\abc.txt";
+
+> if(!Directory.Exists(Path.GetDirectoryName(dest)))
+. {
+.     Directory.CreateDirectory(Path.GetDirectoryName(dest));
+. 
+. }
+
+> File.Copy("D:\\TestPath\\files.txt","D:\\TestPath\\abc\\abc.txt")
+
+> FileInfo fi = new FileInfo(dest);
+
+> fi.Extension
+".txt"
+
+> fi.Length
+211
+
+> fi.Length
+211
+
+> fi
+[D:\TestPath\abc\abc.txt]
+
+> FileInfo fi = new FileInfo(dest);
+
+> fi.Length
+2343
+
+> fi.Length/1024
+2
+
+> fi.Length/1024f
+2.288086
+
+> 

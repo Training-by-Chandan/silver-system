@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace Silver.ConsoleApp
@@ -34,11 +35,26 @@ namespace Silver.ConsoleApp
                 //DelegatesExample();
                 //ParallelProgrammingExample();
                 //ExceptionsExample();
-                ExceptionsExampleV2();
-
+                //ExceptionsExampleV2();
+                FileHandling();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void FileHandling()
+        {
+            var file = "D:\\TestPath\\files.txt";
+            Console.WriteLine("Enter the text to add in the file");
+            //File.AppendAllText(file, Console.ReadLine());
+
+            using (var fs = File.Open(file, FileMode.Append))
+            {
+                var input = Console.ReadLine();
+                var arr = Encoding.UTF8.GetBytes(input);
+                //fs.Position = 0;
+                fs.Write(arr, 0, arr.Length);
+            }
         }
 
         private static void ExceptionsExampleV2()
@@ -47,7 +63,7 @@ namespace Silver.ConsoleApp
             {
                 Exceptions.MainFunction();
             }
-            catch(NumberZeroException ex)
+            catch (NumberZeroException ex)
             {
                 //send email
             }
