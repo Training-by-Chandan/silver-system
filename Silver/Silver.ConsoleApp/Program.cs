@@ -37,11 +37,17 @@ namespace Silver.ConsoleApp
                 //ExceptionsExample();
                 //ExceptionsExampleV2();
                 //FileHandling();
-                AttributeExample();
-
+                //AttributeExample();
+                EnumExample();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void EnumExample()
+        {
+            Enums e = new Enums();
+            e.Run();
         }
 
         private static void AttributeExample()

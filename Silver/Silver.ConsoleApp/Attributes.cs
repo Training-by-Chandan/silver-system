@@ -22,7 +22,8 @@ namespace Silver.ConsoleApp
 
         // [Custom(FullName = "Infosys Pvt. Ltd.", Address = "KTM")]
         public string Infosys { get; set; }
-        [Custom(Address ="ABC",FullName ="XYZ")]
+
+        [Custom(Address = "ABC", FullName = "XYZ")]
         public string Test { get; set; }
 
         public override string ToString()
@@ -76,5 +77,16 @@ namespace Silver.ConsoleApp
 
         // This is a named argument
         public int NamedInt { get; set; }
+    }
+
+    [System.AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
+    public class NepaliNameAttribute : Attribute
+    {
+        public NepaliNameAttribute(string name)
+        {
+            nepaliName = name;
+        }
+
+        private string nepaliName { get; set; }
     }
 }
