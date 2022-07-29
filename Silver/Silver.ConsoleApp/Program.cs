@@ -36,10 +36,18 @@ namespace Silver.ConsoleApp
                 //ParallelProgrammingExample();
                 //ExceptionsExample();
                 //ExceptionsExampleV2();
-                FileHandling();
+                //FileHandling();
+                AttributeExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res == "y");
+        }
+
+        private static void AttributeExample()
+        {
+            TestingForAttribute ta = new TestingForAttribute();
+            Console.WriteLine(ta.ToString());
         }
 
         private static void FileHandling()
