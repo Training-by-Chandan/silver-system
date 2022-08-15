@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConsoleApps.Db.EF.CodeFirst.Migrations
 {
-    [DbContext(typeof(DefaultContext))]
-    [Migration("20220814014823_studentDeleted")]
-    partial class studentDeleted
+    [DbContext(typeof(DatabaseContext))]
+    [Migration("20220815010521_studentAdded")]
+    partial class studentAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,25 +23,26 @@ namespace ConsoleApps.Db.EF.CodeFirst.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ConsoleApps.Db.EF.CodeFirst.PersonInfo", b =>
+            modelBuilder.Entity("ConsoleApps.Db.EF.CodeFirst.Student", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("StudentNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentNumber"), 1L, 1);
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("StudentNumber");
 
-                    b.ToTable("PersonInfos");
+                    b.ToTable("Students");
                 });
 #pragma warning restore 612, 618
         }

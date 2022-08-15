@@ -7,6 +7,7 @@
             var res = "Y";
             do
             {
+                Console.Clear();
                 Console.WriteLine("Press\n1. to Read all records\n2 to Get by ID\n3 to Create the record\n4 to Edit the records\n5 to Delete the records");
                 var choice = Convert.ToInt32(Console.ReadLine());
                 SelectChoice(choice);
@@ -21,19 +22,19 @@
             switch (choice)
             {
                 case 1:
-                    DbConnection.ReadAll();
+                    DatabaseConnection.Read();
                     break;
                 case 2:
-                    DbConnection.GetById();
+                    DatabaseConnection.ReadById();
                     break;
                 case 3:
-                    DbConnection.Create();
+                    DatabaseConnection.Create();
                     break;
                 case 4:
-                    DbConnection.Edit();
+                  DatabaseConnection.Edit();
                     break;
                 case 5:
-                    DbConnection.Delete();
+                    DatabaseConnection.Delete();
                     break;
                 default:
                     Console.WriteLine("Wrong choice");
