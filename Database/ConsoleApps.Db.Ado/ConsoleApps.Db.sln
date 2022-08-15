@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApps.Db.Ado", "ConsoleApps.Db.Ado\ConsoleApps.Db.Ado.csproj", "{BCBB9C9C-970B-4AC9-B1F6-8948013C4092}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApps.Db.Ado", "ConsoleApps.Db.Ado\ConsoleApps.Db.Ado.csproj", "{BCBB9C9C-970B-4AC9-B1F6-8948013C4092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApps.Db.EF.CodeFirst", "ConsoleApps.Db.EF.CodeFirst\ConsoleApps.Db.EF.CodeFirst.csproj", "{F8FECA5E-9203-4AAF-B240-0B26559AD65D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BCBB9C9C-970B-4AC9-B1F6-8948013C4092}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCBB9C9C-970B-4AC9-B1F6-8948013C4092}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCBB9C9C-970B-4AC9-B1F6-8948013C4092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FECA5E-9203-4AAF-B240-0B26559AD65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FECA5E-9203-4AAF-B240-0B26559AD65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FECA5E-9203-4AAF-B240-0B26559AD65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FECA5E-9203-4AAF-B240-0B26559AD65D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
