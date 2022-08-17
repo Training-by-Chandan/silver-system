@@ -11,5 +11,6 @@ namespace WinFormApp.Db
         }
 
         public DbSet<UserInfo> UserInfos { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
     }
 }

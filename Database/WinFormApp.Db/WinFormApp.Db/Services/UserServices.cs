@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace WinFormApp.Db.Services
 {
-    public class UserServices
+    public class UserServices : BaseServices
     {
-        private readonly DefaultContext db = new DefaultContext();
-
         public (bool, string) Login(string username, string password)
         {
             try

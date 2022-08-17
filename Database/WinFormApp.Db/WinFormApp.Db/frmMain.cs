@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormApp.Db.Admin;
 
 namespace WinFormApp.Db
 {
@@ -27,6 +28,13 @@ namespace WinFormApp.Db
             calc calculator = new calc();
             calculator.MdiParent = this;
             calculator.Show();
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventory inventory = new frmInventory();
+            inventory.MdiParent = this;
+            inventory.Show();
         }
     }
 }
