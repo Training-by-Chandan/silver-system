@@ -21,5 +21,12 @@ namespace WinFormApp.Db
         {
             Program.loginForm.Show();
         }
+
+        private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            calc calculator = new calc();
+            calculator.MdiParent = this;
+            calculator.Show();
+        }
     }
 }
