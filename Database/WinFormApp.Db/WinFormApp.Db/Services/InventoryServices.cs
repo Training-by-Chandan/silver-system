@@ -33,5 +33,61 @@ namespace WinFormApp.Db.Services
                 return (false, ex.Message);
             }
         }
+
+        public List<Inventory> GetAll()
+        {
+            return db.Inventories.ToList();
+        }
+
+        public List<Inventory> GetAllBySearchParameters(string searchText)
+        {
+            var data = db.Inventories;
+            var filtered = data.Where(p => p.Code.Contains(searchText) || p.Name.Contains(searchText));
+            return filtered.ToList();
+        }
+
+        public (bool, string) Edit(Inventory model)
+        {
+            try
+            {
+                var existing = db.Inventories.Find(model.Id);
+                if (existing == null)
+                {
+                    return (false, "record not found");
+                }
+                existing.Code = model.Code;
+                existing.Name = model.Name;
+                existing.Price = model.Price;
+                existing.Quantity = model.Quantity;
+                existing.Units = model.Units;
+
+                db.Inventories.Update(existing);
+                db.SaveChanges();
+                return (true, "Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Delete(int id)
+        {
+            try
+            {
+                var existing = db.Inventories.Find(id);
+                if (existing == null)
+                {
+                    return (false, "record not found");
+                }
+                db.Inventories.Remove(existing);
+                db.SaveChanges();
+                return (true, "Deleted Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
     }
 }

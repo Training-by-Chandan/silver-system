@@ -31,17 +31,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.txtQuantity = new System.Windows.Forms.MaskedTextBox();
             this.txtPrice = new System.Windows.Forms.MaskedTextBox();
             this.cmbUnits = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.grdInventory = new System.Windows.Forms.DataGridView();
+            this.lblId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,10 +72,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblId);
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.txtQuantity);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.cmbUnits);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.btnCreate);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
@@ -82,10 +94,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inventory";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(501, 225);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(134, 43);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(662, 225);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(134, 43);
+            this.btnEdit.TabIndex = 15;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(120, 166);
-            this.txtQuantity.Mask = "0000000.00";
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(276, 32);
             this.txtQuantity.TabIndex = 14;
@@ -93,7 +126,6 @@
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(120, 112);
-            this.txtPrice.Mask = "0000000.00";
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(276, 32);
             this.txtPrice.TabIndex = 13;
@@ -107,14 +139,15 @@
             this.cmbUnits.Size = new System.Drawing.Size(276, 33);
             this.cmbUnits.TabIndex = 12;
             // 
-            // button2
+            // btnReset
             // 
-            this.button2.Location = new System.Drawing.Point(501, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 43);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(501, 225);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(134, 43);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCreate
             // 
@@ -173,11 +206,61 @@
             this.txtName.Size = new System.Drawing.Size(276, 32);
             this.txtName.TabIndex = 3;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Controls.Add(this.grdInventory);
+            this.groupBox2.Location = new System.Drawing.Point(25, 333);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(816, 338);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Inventory Records";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(263, 43);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(91, 35);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(14, 44);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Search Here";
+            this.txtSearch.Size = new System.Drawing.Size(240, 32);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // grdInventory
+            // 
+            this.grdInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdInventory.Location = new System.Drawing.Point(14, 92);
+            this.grdInventory.Name = "grdInventory";
+            this.grdInventory.RowTemplate.Height = 25;
+            this.grdInventory.Size = new System.Drawing.Size(796, 240);
+            this.grdInventory.TabIndex = 0;
+            this.grdInventory.SelectionChanged += new System.EventHandler(this.grdInventory_SelectionChanged);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(20, 234);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 25);
+            this.lblId.TabIndex = 17;
+            this.lblId.Visible = false;
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 330);
+            this.ClientSize = new System.Drawing.Size(879, 683);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -186,6 +269,9 @@
             this.Load += new System.EventHandler(this.frmInventory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInventory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,7 +282,7 @@
         private TextBox txtCode;
         private GroupBox groupBox1;
         private ComboBox cmbUnits;
-        private Button button2;
+        private Button btnReset;
         private Button btnCreate;
         private Label label6;
         private Label label3;
@@ -205,5 +291,12 @@
         private TextBox txtName;
         private MaskedTextBox txtQuantity;
         private MaskedTextBox txtPrice;
+        private GroupBox groupBox2;
+        private DataGridView grdInventory;
+        private Button btnSearch;
+        private TextBox txtSearch;
+        private Button btnDelete;
+        private Button btnEdit;
+        private Label lblId;
     }
 }
