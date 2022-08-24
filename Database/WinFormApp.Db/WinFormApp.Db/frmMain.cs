@@ -16,6 +16,10 @@ namespace WinFormApp.Db
         public frmMain()
         {
             InitializeComponent();
+            if (Program.DeveloperOption)
+            {
+                this.Text += " - Developer Mode";
+            }
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)

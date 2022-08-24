@@ -30,9 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(870, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+           
             // 
             // fileToolStripMenuItem
             // 
@@ -54,6 +55,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // inventoryToolStripMenuItem
+            // 
+            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.inventoryToolStripMenuItem.Text = "Inventory";
+            this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // utilitiesToolStripMenuItem
             // 
@@ -66,16 +74,9 @@
             // calculatorToolStripMenuItem
             // 
             this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.calculatorToolStripMenuItem.Text = "Calculator";
             this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click);
-            // 
-            // inventoryToolStripMenuItem
-            // 
-            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.inventoryToolStripMenuItem.Text = "Inventory";
-            this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // frmMain
             // 

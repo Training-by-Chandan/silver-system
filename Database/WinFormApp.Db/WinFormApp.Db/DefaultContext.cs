@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 using WinFormApp.Db.Models;
 
 namespace WinFormApp.Db
@@ -7,7 +8,7 @@ namespace WinFormApp.Db
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-PT71T7O\\SQLBHAGAT;Initial Catalog=Silver.Winform.CodeFirst;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(Program.connectionString);
         }
 
         public DbSet<UserInfo> UserInfos { get; set; }

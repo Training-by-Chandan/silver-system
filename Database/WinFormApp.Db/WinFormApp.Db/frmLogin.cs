@@ -18,6 +18,15 @@ namespace WinFormApp.Db
         public frmLogin()
         {
             InitializeComponent();
+            this.Load += FrmLogin_Load;
+        }
+
+        private void FrmLogin_Load(object? sender, EventArgs e)
+        {
+#if DEBUG
+            txtUsername.Text = "Admin";
+            txtPassword.Text = "Admin@123";
+#endif
         }
 
         private void btnReset_Click(object sender, EventArgs e)
