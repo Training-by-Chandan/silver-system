@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="forms">
+            <input type="text" placeholder="enter the text" id="txtTitle">
+            <button id="btnChange">change title</button>
+            <div id="divText"></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ashim</td>
+                <td>Ghimire</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taranga</td>
+                <td>Gorkhali</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Thaman</td>
+                <td>Chaudhary</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Chandan</td>
+                <td>Bhagat</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kritim</td>
+                <td>Tiwari</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+  <div>
+    <div class="hide">
+        <div id="clickable" style="height: 100px;background-color:#d781d7;width: 100%;" onclick="clickableCLicked(this)">
+             <input type="checkbox" />
+        </div>
+         <h1 class="group1">Hello Taragnga</h1>
+         sdgsdfgsdfg
+         <h1 class="group1" id="test">Hello Thaman</h1>
+         
+         <h1 class="group1">Hello Ashim</h1>
+         
+         <h1 class="group2">Hello Kritim</h1>
+         
+         <h1 class="group2">Hello Praladh</h1>
+         
+         <h1 class="group2">Hello Dipesh</h1>
+     
+     </div>
+     <div id="test" class="hide">
+         <h1 class="group1">Hello Taragnga</h1>
+         
+         <h1 class="group2">Hello Dipesh</h1>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    
+    <script type="text/javascript">
+        function clickableCLicked(element)
+        {
+            //console.log(element);
+            element.children[0].setAttribute('checked',true);
+        }
+    </script>
+    <script>
+        $(document).ready(function()
+        {
+            $('table').DataTable();
+
+            $(document).contextmenu(function(e){
+                e.preventDefault();
+                $('#divText').html('right click is blocked');
+            })
+            //btn event register
+            $('#btnChange').on('click',function(){
+                document.title=$('#txtTitle').val();
+            })
+
+            $('#txtTitle').on('keyup',function(){
+                $('#divText').html($('#txtTitle').val())
+               
+            })
+
+        });
+
+        $('div#test').on('click',function(){
+            alert('h1 is clicked')
+        })
+       
+    </script>
+</body>
+</html>

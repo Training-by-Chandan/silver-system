@@ -1,0 +1,30 @@
+h1{
+    padding: 20px 53px;
+    border: black solid;
+    font-size: 3em;
+}
+
+.group1{
+    color: blue;
+}
+.group2{
+    color: red;
+}
+
+h1:nth-child(odd){
+    background-color: antiquewhite;
+}
+h1:nth-child(even){
+    background-color:aquamarine;
+}
+h1:hover{
+    background-color: aqua;
+}
+
+div#test{
+    opacity: 0.25;
+}
+
+.hide{
+    display: none;
+}
