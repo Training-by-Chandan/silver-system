@@ -1,0 +1,55 @@
+﻿@model List<Student>
+
+    <div class="row">
+        <a asp-controller="Student" asp-action="Create"><i class="fa fa-plus fa-2x"></i></a>
+    </div>
+@if (Model==null || Model.Count==0)
+{
+    <div class="row">
+        <span class="alert alert-danger">
+            No Records Found
+        </span>
+    </div>
+}
+else{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int sno = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@sno</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.Id">
+                            <i class="fa fa-edit"></i>
+                        </a> 
+                        &nbsp;
+                        <a asp-controller="Student" asp-action="Details" asp-route-id="@item.Id">
+                           <i class="fa fa-info"></i>
+                        </a>
+                        &nbsp;
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@item.Id">
+                           <i class="fa fa-trash"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+                sno++;
+            }
+        </tbody>
+    </table>
+}
+
+

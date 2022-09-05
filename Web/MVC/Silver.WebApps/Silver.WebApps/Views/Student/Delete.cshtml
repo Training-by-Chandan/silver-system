@@ -1,0 +1,22 @@
+﻿@model Student
+
+<h1>Delete Student</h1>
+<div class="row">
+<h3>Are you sure you want to delete this?</h3>
+    <form asp-controller="Student" asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label class="control-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" disabled />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="text" class="form-control" asp-for="Email" disabled />
+
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <input type="submit" class="btn btn-outline-primary" value="Delete" />
+        </div>
+    </form>
+</div>
