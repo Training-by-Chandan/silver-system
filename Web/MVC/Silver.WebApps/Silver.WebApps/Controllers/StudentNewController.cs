@@ -4,11 +4,11 @@ using Silver.WebApps.Models;
 
 namespace Silver.WebApps.Controllers
 {
-    public class StudentController : Controller
+    public class StudentNewController : Controller
     {
         private readonly ApplicationDbContext db;
 
-        public StudentController(ApplicationDbContext db)
+        public StudentNewController(ApplicationDbContext db)
         {
             this.db = db;
         }
@@ -79,11 +79,10 @@ namespace Silver.WebApps.Controllers
         public IActionResult Delete(Student model)
         {
             var existing = db.Students.Find(model.Id);
-                db.Students.Remove(existing);
-                db.SaveChanges();
+            db.Students.Remove(existing);
+            db.SaveChanges();
 
-                return RedirectToAction("Index");
-           
+            return RedirectToAction("Index");
         }
     }
 }

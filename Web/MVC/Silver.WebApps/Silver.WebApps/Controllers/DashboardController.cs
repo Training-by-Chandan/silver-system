@@ -23,5 +23,10 @@ namespace Silver.WebApps.Controllers
                     return View();
             }
         }
+
+        public IActionResult GetAnalytics()
+        {
+            return PartialView();
+        }
     }
 }

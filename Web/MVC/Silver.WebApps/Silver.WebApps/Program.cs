@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Silver.WebApps.Data;
+using Silver.WebApps.Repository;
+using Silver.WebApps.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+DependencyConfig(builder.Services);
 
 var app = builder.Build();
 
@@ -39,6 +43,25 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
+
 app.MapRazorPages();
 
 app.Run();
+
+static void DependencyConfig(IServiceCollection services)
+{
+    //Repository Injection Configuration
+    services.AddTransient<IStudentRepository, StudentRepository>();
+
+    //Services Injection Configuration
+    services.AddTransient<IStudentService, StudentService>();
+    services.AddTransient<IAdminService, AdminService>();
+}
