@@ -18,5 +18,7 @@ namespace Silver.Web.Models
 
         [ForeignKey("ParentId")]
         public virtual Category? Parent { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

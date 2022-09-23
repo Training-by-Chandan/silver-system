@@ -29,12 +29,6 @@ namespace Silver.Web.Controllers
             return View();
         }
 
-        public IActionResult ListCategories()
-        {
-            var data = categoryService.GetAll();
-            return View(data);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

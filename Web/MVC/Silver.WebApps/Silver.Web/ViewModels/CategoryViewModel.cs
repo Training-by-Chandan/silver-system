@@ -16,6 +16,13 @@ namespace Silver.Web.ViewModels
 
         public int? ParentId { get; set; }
 
-        public string ParentName { get; set; }
+        public string? ParentName { get; set; }
+        public DateTime? CreatedDate { get; set; }
+    }
+
+    public class DropdownViewModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }
