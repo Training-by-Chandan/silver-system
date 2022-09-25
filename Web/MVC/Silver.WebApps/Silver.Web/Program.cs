@@ -61,6 +61,7 @@ static void ConfigDependencies(IServiceCollection services)
     #region Services
 
     services.AddTransient<ICategoryService, CategoryService>();
+    services.AddTransient<IProductService, ProductService>();
 
     #endregion Services
 }

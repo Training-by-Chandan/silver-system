@@ -21,6 +21,12 @@ namespace Silver.Web
                 dest.Value = src.Id.ToString();
                 dest.Text = src.Name;
             });
+
+            CreateMap<Product, ProductViewModel>().AfterMap((src, dest) =>
+            {
+                dest.CategoryName = src.Category == null ? "" : src.Category.Name;
+            });
+            CreateMap<ProductViewModel, Product>();
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Silver.Web.Repositories
     public abstract class BaseRepository<T> : IBaseRepository<T>
         where T : class
     {
-        private readonly ApplicationDbContext db;
-        private DbSet<T> dbset;
+        protected readonly ApplicationDbContext db;
+        protected DbSet<T> dbset;
 
         public BaseRepository(ApplicationDbContext db)
         {

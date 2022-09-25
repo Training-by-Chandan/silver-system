@@ -1,4 +1,5 @@
-﻿using Silver.Web.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Silver.Web.Data;
 using Silver.Web.Models;
 
 namespace Silver.Web.Repositories
@@ -11,6 +12,11 @@ namespace Silver.Web.Repositories
     {
         public ProductRepository(ApplicationDbContext db) : base(db)
         {
+        }
+
+        public override IQueryable<Product> GetAll()
+        {
+            return dbset.Include(p => p.Category);
         }
     }
 }

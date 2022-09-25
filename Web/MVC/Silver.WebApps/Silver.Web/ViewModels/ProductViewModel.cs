@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Silver.Web.Models;
 
-namespace Silver.Web.Models
+namespace Silver.Web.ViewModels
 {
-    public class Product
+    public class ProductViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -11,8 +13,6 @@ namespace Silver.Web.Models
         public Units Units { get; set; }
         public double Quantity { get; set; }
         public int CategoryId { get; set; }
-
-        [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
+        public string? CategoryName { get; set; }
     }
 }

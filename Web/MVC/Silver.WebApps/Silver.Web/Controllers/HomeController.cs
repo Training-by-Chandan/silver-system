@@ -9,19 +9,23 @@ namespace Silver.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService categoryService;
+        private readonly IProductService productService;
 
         public HomeController(
             ILogger<HomeController> logger,
-            ICategoryService categoryService
+            ICategoryService categoryService,
+            IProductService productService
             )
         {
             _logger = logger;
             this.categoryService = categoryService;
+            this.productService = productService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var data = productService.GetAll();
+            return View(data);
         }
 
         public IActionResult Privacy()
