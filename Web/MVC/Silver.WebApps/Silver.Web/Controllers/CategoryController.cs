@@ -31,8 +31,10 @@ namespace Silver.Web.Controllers
             if (ModelState.IsValid)
             {
                 var res = categoryService.Create(model);
+
                 if (res.Item1)
                 {
+                    TempData["message"] = res.Item2;
                     return RedirectToAction("Index");
                 }
             }

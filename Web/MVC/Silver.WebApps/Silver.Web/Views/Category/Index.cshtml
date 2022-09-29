@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "ListCategories";
 }
+@if (!string.IsNullOrWhiteSpace(TempData["message"]?.ToString()))
+{
+    <div class="alert alert-danger">
+        @TempData["message"]
+    </div>
+}
 
 <h1>ListCategories</h1>
 

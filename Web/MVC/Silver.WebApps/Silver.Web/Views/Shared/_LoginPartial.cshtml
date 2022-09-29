@@ -1,8 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Newtonsoft.Json
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <ul class="navbar-nav">
+    <li class="nav-item">
+        @{
+            var cart = HttpContextAccessor.HttpContext.Session.GetString("cart");
+           if (!string.IsNullOrWhiteSpace(cart))
+            {
+                 var cartModel = JsonConvert.DeserializeObject<List<SessionViewModel>>(cart);
+                var total = cartModel.Sum(p => p.Quantity);
+                <a class="nav-link text-dark">
+                @total Items
+
+                </a>
+            }
+        }
+    </li>
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">

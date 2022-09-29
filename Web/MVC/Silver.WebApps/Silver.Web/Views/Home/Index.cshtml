@@ -26,7 +26,7 @@
                             <label>Name : @item.Name</label>
                             <label>Price : @item.Price per @item.Units</label>
                             <label>Available in Stack : @item.Quantity</label>
-                            <a class="btn btn-outline-primary">Add To Cart</a>
+                            <a class="btn btn-outline-primary" asp-controller="home" asp-action="addtosession" asp-route-id="@item.Id" >Add To Cart</a>
                         </div>
                         </div>
                 }
