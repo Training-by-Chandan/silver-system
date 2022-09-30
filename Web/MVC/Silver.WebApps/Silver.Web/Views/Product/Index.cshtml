@@ -30,6 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
+            <th>
+                Picture
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -53,6 +56,9 @@
          
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <img src="@item.FilePath" height="100" width="100" />
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

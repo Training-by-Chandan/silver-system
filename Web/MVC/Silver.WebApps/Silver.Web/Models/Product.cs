@@ -14,5 +14,7 @@ namespace Silver.Web.Models
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public string? FilePath { get; set; }
     }
 }

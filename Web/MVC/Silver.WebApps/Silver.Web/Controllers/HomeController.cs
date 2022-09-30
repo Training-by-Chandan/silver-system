@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Silver.Web.Services;
 using Silver.Web.ViewModels;
@@ -31,7 +32,7 @@ namespace Silver.Web.Controllers
 
         public IActionResult Privacy()
         {
-            Response.Cookies.Append("class", "ASP.NET", new CookieOptions() { Expires=DateTime.Now.AddSeconds(20), Path="/category" });
+            Response.Cookies.Append("class", "ASP.NET", new CookieOptions() { Expires = DateTime.Now.AddSeconds(20), Path = "/category" });
 
             return View();
         }
@@ -43,10 +44,9 @@ namespace Silver.Web.Controllers
             var product = productService.GetProductbyId(id);
             if (!string.IsNullOrWhiteSpace(cartStr))
             {
-
                 cartModel = JsonConvert.DeserializeObject<List<SessionViewModel>>(cartStr);
                 var existing = cartModel.FirstOrDefault(p => p.Id == id);
-                if (existing==null)
+                if (existing == null)
                 {
                     cartModel.Add(new SessionViewModel()
                     {
@@ -54,6 +54,7 @@ namespace Silver.Web.Controllers
                         Name = product.Name,
                         Price = product.Price,
                         Quantity = 1,
+                        FilePath = product.FilePath,
                         Unit = product.Units,
                     });
                 }
@@ -70,12 +71,21 @@ namespace Silver.Web.Controllers
                     Name = product.Name,
                     Price = product.Price,
                     Quantity = 1,
+                    FilePath = product.FilePath,
                     Unit = product.Units,
                 });
             }
 
             HttpContext.Session.SetString("cart", JsonConvert.SerializeObject(cartModel));
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public IActionResult Checkout()
+        {
+            var cartStr = HttpContext.Session.GetString("cart");
+            var cartModel = JsonConvert.DeserializeObject<List<SessionViewModel>>(cartStr);
+            return View(cartModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

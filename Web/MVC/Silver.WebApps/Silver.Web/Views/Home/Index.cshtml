@@ -23,9 +23,19 @@
                 {
                     <div class="col-md-4">
                         <div class="card">
+                            <div class="row">
+
+                                <div class="col-9">
+                                    
                             <label>Name : @item.Name</label>
                             <label>Price : @item.Price per @item.Units</label>
                             <label>Available in Stack : @item.Quantity</label>
+                                </div>
+                                <div class="col-3">
+                                    <img src="@item.FilePath" height="100" width="100" />
+                                </div>
+                            </div>
+                            
                             <a class="btn btn-outline-primary" asp-controller="home" asp-action="addtosession" asp-route-id="@item.Id" >Add To Cart</a>
                         </div>
                         </div>

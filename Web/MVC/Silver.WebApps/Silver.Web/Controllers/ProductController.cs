@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Silver.Web.Services;
 using Silver.Web.ViewModels;
 
 namespace Silver.Web.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ProductController : Controller
     {
         private readonly IProductService productService;
@@ -31,10 +33,23 @@ namespace Silver.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductViewModel model)
+        public IActionResult Create(ProductViewModel model, IFormFile productPic)
         {
             if (ModelState.IsValid)
             {
+                //upload the file
+                var filename = "";
+                if (productPic.Length > 0)
+                {
+                    filename = "/Uploads/Products/" + Guid.NewGuid().ToString() + Path.GetExtension(productPic.FileName);
+                    var filepath = Directory.GetCurrentDirectory() + "/wwwroot" + filename;
+                    using (var stream = new FileStream(filepath, FileMode.Create))
+                    {
+                        productPic.CopyTo(stream);
+                    }
+                }
+                //create the product in db
+                model.FilePath = filename;
                 var res = productService.Create(model);
                 if (res.Item1)
                 {

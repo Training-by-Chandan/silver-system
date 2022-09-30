@@ -14,15 +14,6 @@ namespace Silver.Web.ViewModels
         public double Quantity { get; set; }
         public int CategoryId { get; set; }
         public string? CategoryName { get; set; }
-    }
-
-    public class SessionViewModel
-    {
-        public int Id { get; set; }
-        public double Quantity { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public Units Unit { get; set; }
-        public double Total => Quantity * Price;
+        public string? FilePath { get; set; }
     }
 }

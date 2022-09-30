@@ -12,7 +12,7 @@
             {
                  var cartModel = JsonConvert.DeserializeObject<List<SessionViewModel>>(cart);
                 var total = cartModel.Sum(p => p.Quantity);
-                <a class="nav-link text-dark">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="checkout">
                 @total Items
 
                 </a>
