@@ -8,7 +8,7 @@ namespace Silver.ConsoleApp
         {
             Console.WriteLine("Call from 1");
 
-            System.Console.WriteLine("Calling from function one");
+            System.Console.WriteLine("Callingfrom function one");
         }
 
         public abstract void FunctionTwo();
